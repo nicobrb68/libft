@@ -18,8 +18,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	final_size;
 	unsigned int	i;
 
-	i = ft_strlen(s);
-	i -= start;
+	if (!s)
+		return (0);
+	if (start >= ft_strlen(s))
+	{
+		res = malloc(1);
+		if (!res)
+			return (0);
+		res[0] = '\0';
+		return (res);
+	}
+	i = ft_strlen(s) - start;
 	if (i < len)
 		final_size = i;
 	else
@@ -28,7 +37,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!res)
 		return (0);
 	i = 0;
-	while (s[start] && i < len)
+	while (i < final_size)
 	{
 		res[i] = s[start];
 		start++;

@@ -53,6 +53,8 @@ static char	*ft_stdup(const char *s, char c, int *start, int *end)
 	x = 0;
 	ft_wordindex(s, c, start, end);
 	strtocpy = malloc(sizeof(char) * (*end - *start) + 1);
+	if(!strtocpy)
+		return (0);
 	while (x < *end - *start)
 	{
 		strtocpy[x] = s[*start + x];

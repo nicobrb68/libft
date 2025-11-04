@@ -10,31 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.a"
+#include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	while (lst->next)
+	if (!lst || !new)
+		return ;
+	if (!*lst)
 	{
-		lst = lst->next;
+		*lst = new;
+		return ;
 	}
-	lst = *new;
+	while ((*lst)->next)
+	{
+		lst = &((*lst)->next);
+	}
+	(*lst)->next = new;
 	return ;
 }
-int main()
-{
-    int    a = 1;
-    int b = 2;
-    int c = 3;
-    t_list *d = ft_lstnew(&a);
-    t_list *e = ft_lstnew(&b);
-    t_list *f = ft_lstnew(&c);
-
-
-   ft_lstadd_front(&d, e);
-    ft_lstadd_front(&d, f);
-
-	ft_lstadd_back(t_list **lst, t_list e)
-	
-    return (0);
-}*/

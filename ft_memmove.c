@@ -22,19 +22,19 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	castsrc = (unsigned char *)src;
 	if (castdest > castsrc)
 	{
-		i = 0;
-		while (i < n)
+		while (n--)
 		{
-			castdest[i] = castsrc[i];
+			castdest[n] = castsrc[n];
 			i++;
 		}
 	}
 	else
 	{
-		i = n;
-		while (i--)
+		i = 0;
+		while (i < n)
 		{
 			castdest[i] = castsrc[i];
+			i++;
 		}
 	}
 	return (dest);

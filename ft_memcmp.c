@@ -21,13 +21,15 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	casts2 = (unsigned char *)s2;
 	if (!n)
 		return (0);
-	while (*casts1 && n -1 && *casts1 == *casts2)
+	while (n--)
 	{
+		if (*casts1 != *casts2)
+			return (*casts1 - *casts2);
 		casts1++;
 		casts2++;
-		n--;
+		
 	}
-	return (*casts1 - *casts2);
+	return (0);
 }
 
 /*
